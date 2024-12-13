@@ -1,0 +1,43 @@
+﻿@model Flight?
+
+@{
+    ViewBag.Title = "Edit Flight";
+}
+
+<h2>Update Flight</h2>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("Edit", "Airport", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Flight Details</legend>
+        <div class="text-danger">
+            <input type="hidden" asp-for="FlightId" />
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FlightNumber)
+            <div class="col-sm-6">
+                @Html.TextBoxFor(model => model.FlightNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FlightNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Destination)
+            <div class="col-sm-6">
+                @Html.TextBoxFor(model => model.Destination, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Destination, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to list", "Index")
+</div>

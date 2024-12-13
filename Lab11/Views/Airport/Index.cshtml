@@ -1,0 +1,42 @@
+﻿@model List<Flight>
+
+@{
+    ViewBag.Title = "Flights";
+}
+
+<h2>Flights</h2>
+
+<table class="table table-striped">
+    <div>@Html.ActionLink("Create New Flight", "Create", "Airport", new { }, new { @class = "btn btn-primary" })</div>
+    <thead>
+        <tr>
+            <th>Flight Number</th>
+            <th>Destination</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var flight in Model)
+        {
+            <tr>
+                <td>
+                    <div>
+                        @flight.FlightNumber
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        @flight.Destination
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        @Html.ActionLink("Details", "Detail", "Airport", new { flightId = flight.FlightId }, new { @class = "btn btn-info btn-sm" }) |
+                        @Html.ActionLink("Edit", "Edit", "Airport", new { id = flight.FlightId }, new { @class = "btn btn-warning btn-sm" }) |
+                        @Html.ActionLink("Delete", "Delete", "Airport", new { id = flight.FlightId }, new { @class = "btn btn-danger btn-sm" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

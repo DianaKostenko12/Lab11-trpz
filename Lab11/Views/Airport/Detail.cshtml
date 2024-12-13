@@ -1,0 +1,25 @@
+﻿@model FlightSchedule
+
+@{
+    ViewBag.Title = "Flight Details";
+}
+
+<h2>Flight Details</h2>
+
+<div>
+    <h4>Flight</h4>
+    <dl class="row">
+        <dt class="col-sm-2">Flight Number</dt>
+        <dd class="col-sm-10">@Model.Flight.FlightNumber</dd>
+
+        <dt class="col-sm-2">Destination</dt>
+        <dd class="col-sm-10">@Model.Flight.Destination</dd>
+
+        <dt class="col-sm-2">Departure Date</dt>
+        <dd class="col-sm-10">@Model.DepartureDate.ToString("yyyy-MM-dd")</dd>
+    </dl>
+</div>
+
+<div>
+    @Html.ActionLink("Back to list", "Index")
+</div>
